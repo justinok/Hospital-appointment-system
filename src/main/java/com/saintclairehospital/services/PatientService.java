@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * Clase usada para los servicios de CRUD necesarios, desde aqui podemos
+ * borrar, guardad, eliminar. editar
+ */
 @Service
 public class PatientService {
     @Autowired

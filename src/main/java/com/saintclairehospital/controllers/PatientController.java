@@ -29,11 +29,7 @@ public class PatientController {
         return this.patientService.obtainById(id);
     }
 
-    /**
-     * aaaaaa
-     * @param priority
-     * @return
-     */
+
     @GetMapping("/query")
     public ArrayList<PatientModel> obtainPatientByName(@RequestParam("name") String name){
         return this.patientService.obtainByName(name);
