@@ -1,5 +1,19 @@
 ## Instructions
-### Patient
+
+**missions:**
+
+- add appoint CRUD
+
+- Test
+
+- check numb of appoint in patient
+
+- Foreign keys
+
+- Possible back funtions?
+
+
+### Patient as example
 **_localhost:8080/patient_**
 
 **GET:** get all users
