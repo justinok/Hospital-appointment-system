@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
+/**
+ * La clase controlles es usada para mapear todas las funciones que usaremos
+ * en nuestor CRUD como borrar, crear, modificar y buscar
+ *
+ * ********* Volver a poner las foreign keys luego de acabar los llamados desde
+ * el front *****************************
+ */
 @RestController
 @RequestMapping("/medical_speciality")
+@CrossOrigin("*")
 public class MedicalSpecialityController {
     @Autowired
     MedicalSpecialityService medicalspecialityService;
@@ -20,18 +27,22 @@ public class MedicalSpecialityController {
     }
 
     @PostMapping()
-    public MedicalSpecialityModel saveMedicalSpeciality(@RequestBody MedicalSpecialityModel medicalspeciality){
-        return this.medicalspecialityService.saveMedicalSpeciality(medicalspeciality);
+    public MedicalSpecialityModel saveMedicalSpeciality(
+            @RequestBody MedicalSpecialityModel medicalspeciality){
+        return this.medicalspecialityService.saveMedicalSpeciality(
+                medicalspeciality);
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<MedicalSpecialityModel> obtainMedicalSpecialityById(@PathVariable("id") Integer id){
+    public Optional<MedicalSpecialityModel>
+    obtainMedicalSpecialityById(@PathVariable("id") Integer id){
         return this.medicalspecialityService.obtainById(id);
     }
 
 
     @GetMapping("/query")
-    public ArrayList<MedicalSpecialityModel> obtainMedicalSpecialityByName(@RequestParam("name") String name){
+    public ArrayList<MedicalSpecialityModel>
+    obtainMedicalSpecialityByName(@RequestParam("name") String name){
         return this.medicalspecialityService.obtainByName(name);
     }
 

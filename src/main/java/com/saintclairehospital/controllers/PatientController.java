@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
+/**
+ * La clase controller es usada para mapear todas las funciones que usaremos
+ * en nuestor CRUD como borrar, crear, modificar y buscar
+ *
+ * ********* Volver a poner las foreign keys luego de acabar los llamados desde
+ * el front *****************************
+ */
 @RestController
 @RequestMapping("/patient")
+@CrossOrigin("*")
 public class PatientController {
     @Autowired
     PatientService patientService;
@@ -25,13 +32,15 @@ public class PatientController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<PatientModel> obtainPatientById(@PathVariable("id") Integer id){
+    public Optional<PatientModel>
+    obtainPatientById(@PathVariable("id") Integer id){
         return this.patientService.obtainById(id);
     }
 
 
     @GetMapping("/query")
-    public ArrayList<PatientModel> obtainPatientByName(@RequestParam("name") String name){
+    public ArrayList<PatientModel>
+    obtainPatientByName(@RequestParam("name") String name){
         return this.patientService.obtainByName(name);
     }
 

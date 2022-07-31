@@ -28,7 +28,7 @@ public class PatientModel {
     @Column(unique = true, nullable = false)
     private Integer id;
     private String name;
-    private String numb_of_appoints; //cuadrar esto
+    private Integer numb_of_appoints; //cuadrar esto
 
     public Integer getId() {
         return id;
@@ -46,11 +46,11 @@ public class PatientModel {
         this.name = name;
     }
 
-    public String getNumb_of_appoints() {
+    public Integer getNumb_of_appoints() {
         return numb_of_appoints;
     }
 
-    public void setNumb_of_appoints(String numb_of_appoints) {
+    public void setNumb_of_appoints(Integer numb_of_appoints) {
         this.numb_of_appoints = numb_of_appoints;
     }
 }

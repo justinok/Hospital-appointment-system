@@ -8,8 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
+/**
+ * La clase controlles es usada para mapear todas las funciones que usaremos
+ * en nuestor CRUD como borrar, crear, modificar y buscar
+ *
+ * ********* Volver a poner las foreign keys luego de acabar los llamados desde
+ * el front *****************************
+ */
 @RestController
 @RequestMapping("/appointment")
+@CrossOrigin("*")
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
@@ -20,18 +29,21 @@ public class AppointmentController {
     }
 
     @PostMapping()
-    public AppointmentModel saveAppointment(@RequestBody AppointmentModel appointment){
+    public AppointmentModel saveAppointment(
+            @RequestBody AppointmentModel appointment){
         return this.appointmentService.saveAppointment(appointment);
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<AppointmentModel> obtainAppointmentById(@PathVariable("id") Integer id){
+    public Optional<AppointmentModel> obtainAppointmentById(
+            @PathVariable("id") Integer id){
         return this.appointmentService.obtainById(id);
     }
 
 
     @GetMapping("/query")
-    public ArrayList<AppointmentModel> obtainAppointmentByDate(@RequestParam("date") String date){
+    public ArrayList<AppointmentModel> obtainAppointmentByDate(
+            @RequestParam("date") String date){
         return this.appointmentService.obtainByDate(date);
     }
 
